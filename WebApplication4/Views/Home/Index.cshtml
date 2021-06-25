@@ -1,0 +1,80 @@
+﻿
+@model List<WebApplication4.Models.ut_forms>
+
+@{
+    ViewBag.Title = "Formularz";
+}
+
+<h2>Formularz 1:</h2>
+
+<form action="~/Home/Create" method="post">
+    <div class="form-group">
+
+        <label for="name">Imię</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Podaj imię" />
+    </div>
+    <div class="form-group">
+        <label for="surname">Nazwisko</label>
+        <input type="text" id="surname" name="surname" class="form-control" placeholder="Podaj nazwisko" />
+    </div>
+    <div>
+        <label for="email">E-mail</label>
+        <input type="text" id="email" name="email" class="form-control" placeholder="Wpisz e-mail" />
+    </div>
+
+
+
+    <h2>Formularz 2:</h2>
+
+
+    <div class="form-group">
+        <label for="text">Wpisz wiadomość:</label>
+        <textarea class="form-control" name="text" id="text" rows="2" cols="20" placeholder="Wpisz wiadomość"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="subject">Wybierz temat:</label>
+        <select name="subject" class="form-control" id="topic">
+            <option>Wariant1</option>
+            <option>Wariant2</option>
+            <option>Wariant3</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Wyślij</button>
+
+    
+</form>
+
+<h3>Widok:</h3>
+
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Imię</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Opis</th>
+            <th scope="col">Temat</th>
+            <th scope="col">Status wysyłki</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.surname</td>
+            <td>@item.mail</td>
+            <td>@item.text</td>
+            <td>@item.subject</td>
+            <td>@item.statusmail</td>
+
+        </tr>
+
+    }
+</table>
+
